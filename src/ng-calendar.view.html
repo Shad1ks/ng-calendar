@@ -1,0 +1,58 @@
+﻿<div class="c-calendar">
+    <div ng-if="ctx.isMonthView()">
+        <div class="c-calendar-month">
+            <div class="c-calendar-month-1">
+                <div class="c-calendar-left">
+                    <div class="c-calendar-arrow" ng-click="ctx.prevMonth()"><</div>
+                </div>
+                <div class="c-calendar-middle">
+                    <div class="c-calendar-month-header">{{ctx.calendar.Data.FormattedDate}}</div>
+                </div>
+                <div class="c-calendar-right">
+                    <div class="c-calendar-arrow" ng-click="ctx.nextMonth()">></div>
+                </div>
+            </div>
+            <div class="c-calendar-month-2">
+                <div class="c-calendar-month-header">
+                    <div ng-repeat="c in ctx.calendar.Data.Columns" class="c-calendar-month-item">
+                        <div class="c-calendar-month-date">{{c}}</div>
+                    </div>
+                </div>
+                <div class="c-calendar-month-body">
+                    <div class="c-calendar-month-row" ng-repeat="r in ctx.calendar.Data.Rows">
+                        <div ng-click="ctx.chooseDate(c.Date)" class="c-calendar-month-item" ng-repeat="c in r.Columns">
+                            <span class="c-calendar-month-column" ng-class="{'c-calendar-month-column-active': ctx.isSameDate(c.Date, ctx.calendar.ChosenDate), 'c-calendar-month-column-has-event': ctx.hasEvent(c.Date)}">{{c.FormattedDate}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="ctx.isWeekView()">
+        <div class="c-calendar-week">
+            <div class="c-calendar-left">
+                <div class="c-calendar-arrow" ng-click="ctx.prevWeek()" ng-class="{'c-calendar-arrow-disabled': ctx.isPrevDisabled()}"><</div>
+            </div>
+            <div class="c-calendar-middle">
+                <div class="c-calendar-week-header">
+                    <div ng-click="!ctx.calendar.Options.IsWithTime && ctx.chooseDate(c.Date)" ng-repeat="c in ctx.calendar.Data.Columns" class="c-calendar-week-item" ng-class="{'c-calendar-week-item-actionable': !ctx.calendar.Options.IsWithTime, 'c-calendar-week-item-active': ctx.isSameDate(c.Date, ctx.calendar.ChosenDate)}">
+                        <div class="c-calendar-week-date">
+                            <div class="c-calendar-week-date-name">{{c.DayName}}</div>
+                            <div class="c-calendar-week-date-date">{{c.FormattedDate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="ctx.calendar.Options.IsWithTime" class="c-calendar-week-body">
+                    <div ng-repeat="c in ctx.calendar.Data.Columns" class="c-calendar-week-item">
+                        <div class="c-calendar-week-time">
+                            <div ng-repeat="r in c.Rows" ng-click="ctx.chooseDate(r.Date)" class="c-calendar-week-time-time" ng-class="{'c-calendar-week-time-time-active': ctx.isSameDateTime(r.Date, ctx.calendar.ChosenDate)}">{{r.FormattedDate}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-calendar-right">
+                <div class="c-calendar-arrow" ng-click="ctx.nextWeek()" ng-class="{'c-calendar-arrow-disabled': ctx.isNextDisabled()}">></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{
+  "name": "ss-ng-calendar",
+  "description": "Calendar component for AngularJS.",
+  "main" : [
+    "./src/ng-calendar.component.js",
+    "./src/ng-calendar.view.html",
+    "./src/ng-calendar.view.css"
+  ],
+  "dependencies": {
+    "moment": ">=2.3.0",
+    "angularjs": ">=1.5.0"
+  },
+  "keywords": [
+    "calendar",
+    "moment",
+    "angularjs"
+  ],
+  "authors": [
+    "Igor Karpov <shad1ksen@gmail.com> (http://github.com/Shad1ks)"
+  ],
+  "license": "MIT"
+}

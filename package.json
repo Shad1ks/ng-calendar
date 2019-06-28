@@ -1,0 +1,25 @@
+{
+  "name": "ss-ng-calendar",
+  "description": "Calendar component for AngularJS.",
+  "version": "1.0.0",
+  "main": "./src/ng-calendar.component.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shad1ks/ng-calendar.git"
+  },
+  "dependencies": {
+    "moment": "^2.3.0",
+    "angular": "^1.5.0"
+  },
+  "keywords": [
+    "calendar",
+    "moment",
+    "angularjs"
+  ],
+  "author": "Igor Karpov <shad1ksen@gmail.com> (http://github.com/Shad1ks)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shad1ks/ng-calendar/issues"
+  },
+  "homepage": "https://github.com/Shad1ks/ng-calendar"
+}
